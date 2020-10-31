@@ -16,7 +16,15 @@ export class FotosService {
 
   getFotos(){
     return this.http.get(`${ this.url }/?key=${ this.key }`)
-                        .pipe( map ( data => data['hits'] ) );
+                    .pipe( map ( data => data['hits'] ) );
+  }
+
+  filtrar( tag: string, tipo: string ){
+
+    tipo = ( tipo ) ? '&category=' + tipo : '';
+
+    return this.http.get(`${ this.url }/?key=${ this.key }&q=${tag}${tipo}`)
+                    .pipe( map ( data => data['hits'] ) );
   }
 
 }

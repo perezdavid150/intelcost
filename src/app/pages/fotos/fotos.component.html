@@ -2,6 +2,33 @@
 <h1>Listado de Fotos</h1>
 <hr>
 
+<h5>Filtrar</h5>
+
+<form (ngSubmit)="aplicarFiltro()" autocomplete="off" [formGroup]="filtroForm">
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Tag" formControlName="tag">
+    </div>
+    <div class="col">
+      <select id="inputState" class="form-control" formControlName="tipo">
+        <option value="" selected>Tipo</option>
+        <option value="science">science</option>
+        <option value="people">people</option>
+        <option value="feelings">feelings</option>
+        <option value="computer">computer</option>
+        <option value="buildings">buildings</option>
+        <option value="education">education</option>
+      </select>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-danger mt-2">Filtrar</button>
+</form>
+
+<div *ngIf="campoNoValido('tag')" class="alert alert-danger mt-2" role="alert">
+  El tag es obligatorio
+</div>
+
+<hr>
 
 <div class="card-columns">
   <div class="card" *ngFor="let foto of fotos">
