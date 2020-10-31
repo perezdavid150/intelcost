@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "intelcols"
+    }
+  },
+  "defaultProject": "intelcols",
+  "cli": {
+    "analytics": "0d8aa376-963a-4d99-9e00-ee3e717e8d55"
+  }
 }
