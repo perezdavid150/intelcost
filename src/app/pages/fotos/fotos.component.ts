@@ -12,7 +12,11 @@ export class FotosComponent implements OnInit {
 
   public formSubmitted = false;
 
+  // Modelo
   fotos: FotoModel[] = [];
+
+  // Declaración de formulario reactivo
+
   public filtroForm = this.fb.group({
     tag: ['', [Validators.maxLength(100), Validators.required]],
     tipo: ['']
@@ -25,12 +29,16 @@ export class FotosComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Llamado inicial para tener imagenes
+
     this.fotosService.getFotos()
         .subscribe( resp => {
           this.fotos = resp;
         } );
 
   }
+
+  // Aplicamos filtro
 
   aplicarFiltro(){
     this.formSubmitted = true;
@@ -41,6 +49,8 @@ export class FotosComponent implements OnInit {
                         });
     }
   }
+
+  // Validación de formulario
 
   campoNoValido( campo: string ): boolean{
     return ( this.filtroForm.get(campo).invalid && this.formSubmitted ) ? true : false;

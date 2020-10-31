@@ -1,4 +1,6 @@
 
+// Modelo con el return
+
 export class FotoModel {
 
   id: string;
