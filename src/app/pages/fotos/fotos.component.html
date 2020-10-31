@@ -1,1 +1,18 @@
-<p>fotos works!</p>
+
+<h1>Listado de Fotos</h1>
+<hr>
+
+
+<div class="card-columns">
+  <div class="card" *ngFor="let foto of fotos">
+    <img [src]="foto.previewURL" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">Tipo: {{foto.type}}</h5>
+      <p class="card-text">Tags: {{foto.tags}}</p>
+      <p>
+        <span class="badge badge-primary">Likes: {{foto.likes | number}}</span>&nbsp;
+        <span class="badge badge-success">Visitas: {{foto.views | number}}</span>
+      </p>
+    </div>
+  </div>  
+</div>
